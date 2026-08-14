@@ -7,12 +7,13 @@ automatización con IA, con formulario de newsletter conectado a Supabase.
 
 ```
 ├── index.html            → toda la página (secciones + estilos + lógica)
-├── config.js              → credenciales de Supabase (NO se sube al repo)
+├── vendor-supabase.js      → librería de Supabase incluida localmente (no depende de un CDN externo)
+├── config.js               → credenciales de Supabase (NO se sube al repo)
 ├── config.example.js      → plantilla para crear tu config.js
 ├── vercel.json             → configuración mínima de despliegue
 ├── .gitignore
 └── supabase/
-    └── schema.sql          → crea la tabla "suscriptores" con RLS
+    └── schema.sql          → crea la tabla "suscriptores" con RLS y permisos
 ```
 
 ---
