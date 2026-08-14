@@ -643,7 +643,7 @@
 
       if (error) {
         console.error('Error al guardar en Supabase:', error);
-        alert('No pudimos guardar tu registro. Intenta de nuevo en unos minutos.');
+        alert('No pudimos guardar tu registro.\n\nDetalle técnico: ' + (error.message || JSON.stringify(error)) + (error.code ? ' (código ' + error.code + ')' : ''));
         return;
       }
     } else {
