@@ -22,6 +22,13 @@ create policy "Cualquiera puede registrarse en el newsletter"
   to anon
   with check (true);
 
+-- Desde 2026 Supabase ya no expone las tablas nuevas a la API pública por
+-- defecto: la política de RLS de arriba no basta, también hace falta este
+-- GRANT explícito (es una capa distinta: RLS decide qué filas, GRANT decide
+-- si el rol puede tocar la tabla siquiera).
+grant usage on schema public to anon;
+grant insert on public.suscriptores to anon;
+
 -- (Opcional) Si luego quieres ver los registros desde el dashboard de Supabase,
 -- no necesitas una policy de SELECT: el dashboard usa la service_role key,
 -- que se salta RLS. No la uses nunca en el frontend.
