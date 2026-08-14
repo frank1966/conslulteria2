@@ -647,8 +647,10 @@
         return;
       }
     } else {
-      // Config.js aún no tiene credenciales de Supabase: modo demo, no se guarda nada.
-      console.warn('Supabase no está configurado (config.js). El formulario no está guardando datos todavía.');
+      // Config.js no tiene credenciales, o la librería de Supabase no cargó: no hay forma de guardar.
+      console.warn('Supabase no está configurado o no cargó. El formulario no está guardando datos.');
+      alert('No se pudo conectar con la base de datos (Supabase no cargó o config.js está incompleto). Revisa la consola (F12) para más detalle.');
+      return;
     }
 
     form.classList.add('hide');
